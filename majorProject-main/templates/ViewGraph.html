@@ -1,0 +1,134 @@
+<!-- {% load static %}
+<html>
+<head>
+<title>Detecting Web Attacks with End-to-End Deep Learning</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Detecting Web Attacks with End-to-End Deep Learning</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+      <li><a href="{% url 'Upload' %}"><font size="3" color="">Load Dataset</a></li>
+	  <li><a href="{% url 'RunExisting' %}"><font size="3" color="">Run Existing</a></li>
+	  <li><a href="{% url 'RunPropose' %}"><font size="3" color="">Run AutoEncoder</a></li>
+	  <li><a href="{% url 'RunExtension' %}"><font size="3" color="">Extension LSTM</a></li>
+	   <li><a href="{% url 'Graph' %}"><font size="3" color="">Graph</a></li>
+	   <li><a href="{% url 'Predict' %}"><font size="3" color="">Predict Attacks</a></li>
+	  <li><a href="{% url 'index' %}"><font size="3" color="">Logout</a></li>		
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>
+	<br/>
+	<h4><b>Comparison Graph Screen</b></h4>   
+			
+	
+		<img src="data:image/png;base64, {{ data }}" alt="graph1" />
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Comparison Graph | Detecting Web Attacks with End-to-End Deep Learning</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/web.jpg' %}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3">
+        <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand">
+                <h1 class="m-0 text-white display-5">
+                    <span class="text-primary">W</span>eb
+                    <span class="text-primary">A</span>ttack
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="{% url 'Upload' %}" class="nav-item nav-link">Load Dataset</a>
+                    <a href="{% url 'RunExisting' %}" class="nav-item nav-link">Run Existing</a>
+                    <a href="{% url 'RunPropose' %}" class="nav-item nav-link">Run AutoEncoder</a>
+                    <a href="{% url 'RunExtension' %}" class="nav-item nav-link">Extension LSTM</a>
+                    <a href="{% url 'Graph' %}" class="nav-item nav-link active">Graph</a>
+                    <a href="{% url 'Predict' %}" class="nav-item nav-link">Predict Attacks</a>
+                    <a href="{% url 'index' %}" class="nav-item nav-link text-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid p-0">
+        <div class="position-relative">
+            <img src="{% static 'img/web.jpg' %}" class="img-fluid w-100" style="max-height: 350px; object-fit: cover;" alt="Cyber Security">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                <h2 class="text-white text-uppercase">Comparison Graph</h2>
+                <p class="text-white">Visual Analysis of Attack Detection</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graph Section -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 p-4">
+                    <h3 class="text-center mb-4">Comparison Graph</h3>
+                    <div class="text-center">
+                        {% if data %}
+                            <img src="data:image/png;base64,{{ data }}" class="img-fluid" alt="Graph">
+                        {% else %}
+                            <div class="alert alert-warning">No graph data available.</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-secondary text-white text-center py-3">
+        <small>© 2025 Detecting Web Attacks with Deep Learning. All Rights Reserved.</small>
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

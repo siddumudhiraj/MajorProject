@@ -1,0 +1,201 @@
+<!-- {% load static %}
+<html>
+<head>
+<title>Detecting Web Attacks with End-to-End Deep Learning</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["username"].value;
+	var y=document.forms["f1"]["password"].value;
+	
+	if(x == null || x==""){
+		window.alert("Username must be enter");
+		document.f1.username.focus();
+		return false;
+	}
+	if(y == null || y==""){
+		window.alert("Password must be enter");
+		document.f1.password.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Detecting Web Attacks with End-to-End Deep Learning</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'Login' %}">User Login</a></li>
+      <li><a href="{% url 'Register' %}">New User Register Here</a></li>
+			
+		</center></ul>
+<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action={% url 'UserLogin' %} OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+   <h3><b>User Login Screen</b></h3>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+			 <tr><td><b>Username</b></td><td><input type="text" name="username" style="font-family: Comic Sans MS" size="30"/></td></tr>
+         
+		  
+		<tr><td><b>Password</b></td><td><input type="password" name="password" style="font-family: Comic Sans MS" size="30"/></td></tr>
+
+		
+		 
+			<tr><td></td><td><input type="submit" value="Login">
+			</td>
+			</table>
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</div>	
+					
+				</div>
+				
+				
+	</body>
+</html> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>User Login | Detecting Web Attacks with End-to-End Deep Learning</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/web.jpg' %}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Validation Script -->
+    <script>
+    function validate() {
+        var x = document.forms["f1"]["username"].value;
+        var y = document.forms["f1"]["password"].value;
+
+        if (x == null || x == "") {
+            alert("Username must be entered");
+            document.f1.username.focus();
+            return false;
+        }
+        if (y == null || y == "") {
+            alert("Password must be entered");
+            document.f1.password.focus();
+            return false;
+        }
+        return true;
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3">
+        <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand">
+                <h1 class="m-0 text-white display-5">
+                    <span class="text-primary">W</span>eb
+                    <span class="text-primary">A</span>ttack
+                </h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'Login' %}" class="nav-item nav-link active">User Login</a>
+                    <a href="{% url 'Register' %}" class="nav-item nav-link">New User Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid p-0">
+        <div class="position-relative">
+            <img src="{% static 'img/web.jpg' %}" class="img-fluid w-100" style="max-height: 350px; object-fit: cover;" alt="Cyber Security">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                <h2 class="text-white text-uppercase">User Login</h2>
+                <p class="text-white">Access your Deep Learning Security Dashboard</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <h3 class="text-center mb-4">User Login</h3>
+                        <form name="f1" method="post" action="{% url 'UserLogin' %}" onsubmit="return validate()">
+                            {% csrf_token %}
+                            {% if data %}
+                                <div class="alert alert-info text-center">{{ data }}</div>
+                            {% endif %}
+                            <div class="form-group">
+                                <label><b>Username</b></label>
+                                <input type="text" class="form-control" name="username" placeholder="Enter username">
+                            </div>
+                            <div class="form-group">
+                                <label><b>Password</b></label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter password">
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary px-5 py-2">Login</button>
+                            </div>
+                        </form>
+                        <div class="text-center mt-3">
+                            <small>Don’t have an account? <a href="{% url 'Register' %}" class="text-primary">Register here</a></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-secondary text-white text-center py-3">
+        <small>© 2025 Detecting Web Attacks with Deep Learning. All Rights Reserved.</small>
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
